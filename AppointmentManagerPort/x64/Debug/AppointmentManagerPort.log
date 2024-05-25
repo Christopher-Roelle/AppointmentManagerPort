@@ -1,0 +1,3 @@
+﻿  AppointmentService.cpp
+C:\Users\chris\source\repos\AppointmentManagerPort\AppointmentManagerPort\AppointmentService.cpp(126,29): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  AppointmentManagerPort.vcxproj -> C:\Users\chris\source\repos\AppointmentManagerPort\x64\Debug\AppointmentManagerPort.exe
