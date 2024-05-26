@@ -43,6 +43,16 @@ Contact::Contact(const std::string& cid, const std::string& fn, const std::strin
 	this->address = addr;
 };
 
+void Contact::PrintContact()
+{
+	std::cout << "\n";
+	std::cout << "ID: " << GetContactID() << "\n";
+	std::cout << "First Name: " << GetFirstName() << "\n";
+	std::cout << "Last Name: " << GetLastName() << "\n";
+	std::cout << "Phone Number: " << GetPhoneNumber() << "\n";
+	std::cout << "Address: " << GetAddress() << "\n" << std::endl;
+}
+
 //Getters
 std::string Contact::GetContactID() const {
 	return contactID;
@@ -62,6 +72,10 @@ std::string Contact::GetPhoneNumber() const {
 
 std::string Contact::GetAddress() const {
 	return address;
+}
+
+std::string Contact::GetFullName() const {
+	return GetFirstName() + " " + GetLastName();
 }
 
 //Setters

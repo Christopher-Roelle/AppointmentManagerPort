@@ -5,8 +5,13 @@
 #include <string>
 #include <sstream>
 #include "ContactService.h"
+#include "AppointmentService.h"
 
 //Prototypes
+//Debugging
+void InsertTestPatients();
+
+//Menus
 void PrintHeader();
 void MainMenu();
 void PrintMainMenu();
@@ -14,10 +19,18 @@ void PatientMenu();
 void PrintPatientMenu();
 void AppointmentMenu();
 void PrintAppointmentMenu();
+
+//Contacts
 void NewContact();
 void UpdateContact();
 void DeleteContact();
 void DisplayContact();
+
+//Appointment
+void NewAppointment();
+void RescheduleAppointment();
+void CancelAppointment();
+void DisplayAppointment();
 
 //Helpers
 int ParseIntFromInput(std::string input);
@@ -27,6 +40,7 @@ std::string officeName = "Lakeland Medical Center";
 std::string officeMoto = "Your number one care practitioner!";
 
 ContactService& contactService = ContactService::GetInstance();
+AppointmentService& apptService = AppointmentService::GetInstance();
 
 //State Machine
 enum class STATE{
@@ -48,6 +62,7 @@ int main()
         {
         case STATE::StartUp:
             //Blank slate for startup.
+            InsertTestPatients();
             PrintHeader();
             currentState = STATE::MainMenu;
             break;
@@ -220,23 +235,23 @@ void AppointmentMenu() {
     {
     case 1:
         //New
-        NewContact();
+        NewAppointment();
         break;
     case 2:
-        //Update
-        UpdateContact();
+        //Reschedule
+        RescheduleAppointment();
         break;
     case 3:
-        //Delete
-        DeleteContact();
+        //Delete/Cancel
+        CancelAppointment();
         break;
     case 4:
-        //Display all
-        contactService.DisplayAllContacts();
+        //Display 1
+        DisplayAppointment();
         break;
     case 5:
         //Display all
-        contactService.DisplayAllContacts();
+        apptService.GetAllAppointments();
         break;
     case 6:
         //Return back to Main Menu
@@ -260,6 +275,8 @@ void PrintAppointmentMenu()
     std::cout << "6) Return to Main Menu\n" << std::endl;
 }
 
+//Contact Functions
+
 //Takes in user input and attempts to have the contact service create a new Contact for the patient
 void NewContact()
 {
@@ -269,6 +286,9 @@ void NewContact()
     std::string lastName;
     std::string phoneNumber;
     std::string address;
+
+    std::cout << "New Contact" << std::endl;
+    std::cout << "===========" << std::endl;
 
     //Get the fields
     std::cout << "Patient First Name: ";
@@ -356,21 +376,39 @@ void UpdateContact()
     std::string phoneNumber;
     std::string address;
 
+    std::cout << "Update a Contact" << std::endl;
+    std::cout << "================" << std::endl;
+
     //Get the fields
     std::cout << "Patient ID: ";
     std::getline(std::cin, contactID);
 
-    std::cout << "Patient First Name: ";
+    //Check the contact exists
+    Contact c = contactService.GetContactByID(contactID);
+    if (c.GetContactID() == "INVALID")
+    {
+        //No valid contact, error is handled via Getter
+        return;
+    }
+
+    //Display contact info
+    c.PrintContact();
+
+    std::cout << "Patient First Name (Blank to keep same): ";
     std::getline(std::cin, firstName);
+    if (firstName.empty()) { firstName = c.GetFirstName(); }
 
-    std::cout << "Patient Last Name: ";
+    std::cout << "Patient Last Name (Blank to keep same): ";
     std::getline(std::cin, lastName);
+    if (lastName.empty()) { lastName = c.GetLastName(); }
 
-    std::cout << "Patient Phone Number: ";
+    std::cout << "Patient Phone Number (Blank to keep same): ";
     std::getline(std::cin, phoneNumber);
+    if (phoneNumber.empty()) { phoneNumber = c.GetPhoneNumber(); }
 
-    std::cout << "Patient Address: ";
+    std::cout << "Patient Address (Blank to keep same): ";
     std::getline(std::cin, address);
+    if (address.empty()) { address = c.GetAddress(); }
 
     std::cout << std::endl;
 
@@ -414,6 +452,9 @@ void DeleteContact()
 
     std::string contactID;
 
+    std::cout << "Delete Contact" << std::endl;
+    std::cout << "==============" << std::endl;
+
     //Get the ID
     std::cout << "Patient ID: ";
     std::getline(std::cin, contactID);
@@ -440,6 +481,9 @@ void DisplayContact() {
 
     std::string contactID;
 
+    std::cout << "Display Contact" << std::endl;
+    std::cout << "===============" << std::endl;
+
     //Get the ID
     std::cout << "Patient ID: ";
     std::getline(std::cin, contactID);
@@ -448,12 +492,287 @@ void DisplayContact() {
 
     if (contact.GetContactID() != "INVALID")
     {
-        std::cout << "\n";
-        std::cout << "ID: " << contact.GetContactID() << "\n";
-        std::cout << "First Name: " << contact.GetFirstName() << "\n";
-        std::cout << "Last Name: " << contact.GetLastName() << "\n";
-        std::cout << "Phone Number: " << contact.GetPhoneNumber() << "\n";
-        std::cout << "Address: " << contact.GetAddress() << std::endl;
+        contact.PrintContact();
+    }
+}
+
+//Appointment Functions
+void NewAppointment()
+{
+    bool valid = true;
+    std::string id;
+    std::string cid;
+    std::chrono::system_clock::time_point dateOfAppt;
+    std::string desc;
+
+    //Chron
+    std::string month;
+    std::string day;
+    std::string year;
+
+    int m;
+    int d;
+    int y;
+    std::chrono::system_clock::time_point dt;
+
+    std::cout << "New Appointment" << std::endl;
+    std::cout << "===============" << std::endl;
+
+    //Get the fields
+    std::cout << "Patient ID: ";
+    std::getline(std::cin, cid);
+
+    std::cout << "Numerical Month (MM): ";
+    std::getline(std::cin, month);
+    m = ParseIntFromInput(month);
+
+    std::cout << "Numerical Day (DD): ";
+    std::getline(std::cin, day);
+    d = ParseIntFromInput(day);
+
+    std::cout << "Numerical Year (YYYY): ";
+    std::getline(std::cin, year);
+    y = ParseIntFromInput(year);
+
+    std::cout << "Description of Appointment: ";
+    std::getline(std::cin, desc);
+
+    std::cout << std::endl;
+
+    //Validate the fields are not null and long enough
+    //Does the contact exist?
+    if (contactService.GetContactByID(cid).GetContactID() == "INVALID")
+    {
+        std::cout << "Invalid Patient ID!" << std::endl;
+        valid = false;
+    }
+
+    //Check the Month, Day, and Year are all valid
+    if (m < 1 || m > 12)
+    {
+        std::cout << "Invalid Month!" << std::endl;
+        valid = false;
+    }
+
+    if (d < 1 || d > 31)
+    {
+        std::cout << "Invalid Day!" << std::endl;
+        valid = false;
+    }
+
+    if (y < 1900 || y > 2100)
+    {
+        std::cout << "Invalid Year!" << std::endl;
+        valid = false;
+    }
+
+    if (!valid)
+    {
+        //For now return to previous menu. If there is time, I will provide better validation correction/backing out
+        std::cout << std::endl;
+        return;
+    }
+
+    //Generate the timepoint
+    std::tm tm = {
+        0,
+        0,
+        0,
+        d,
+        m - 1,
+        y - 1900,
+    };
+
+    dt = std::chrono::system_clock::from_time_t(std::mktime(&tm));
+
+    //Generate a new apptID based on y m d and fullname substring to meet 10 characters
+    int curLen = (year + month + day).length();
+    std::string fullName = contactService.GetContactByID(cid).GetFirstName() + contactService.GetContactByID(cid).GetLastName();
+    id = year + month + day + fullName.substr(0, 10 - curLen);
+
+    //Insert Apt
+    apptService.NewAppointment(id, cid, dt, desc);
+    std::cout << "Successfully added Appointment ID: " << id << "\n" << std::endl;
+
+    //try
+    //{
+    //    bool success = apptService.NewAppointment(id, cid, dt, desc);
+    //
+    //    if (success)
+    //    {
+    //        std::cout << "Successfully added Patient Contact ID: " << contactID << "\n" << std::endl;
+    //    }
+    //    else
+    //    {
+    //        std::cout << "Failed to add Patient Contact ID: " << contactID << " -- already exists!\n" << std::endl;
+    //    }
+    //}
+    //catch (const std::invalid_argument& e)
+    //{
+    //    //Oops, something is wrong!
+    //    std::cout << contactID << std::endl;
+    //    std::cout << "Unable to add the patient. " << e.what() << "\n" << std::endl;
+    //}
+}
+
+void RescheduleAppointment()
+{
+    if (apptService.GetListSize() == 0)
+    {
+        std::cout << "No Appointments exist!\n" << std::endl;
+        return;
+    }
+
+    bool valid = true;
+    std::string id;
+    std::string month;
+    std::string day;
+    std::string year;
+
+    int m;
+    int d;
+    int y;
+
+    std::cout << "Reschedule Appointment" << std::endl;
+    std::cout << "======================" << std::endl;
+
+    //Get the fields
+    std::cout << "Appointment ID: ";
+    std::getline(std::cin, id);
+
+    Appointment apt = apptService.GetAppointmentByID(id);
+
+    //Verify appointment exists
+    if (apt.GetAppointmentID() == "INVALID")
+    {
+        //No valid appointment with this id. Error message comes from above
+        return;
+    }
+
+    //Output the appointment to the display
+    apt.PrintAppointment();
+    
+    //Get the new dates
+    std::cout << "New Numerical Month (MM): ";
+    std::getline(std::cin, month);
+    m = ParseIntFromInput(month);
+
+    std::cout << "New Numerical Day (DD): ";
+    std::getline(std::cin, day);
+    d = ParseIntFromInput(day);
+
+    std::cout << "New Numerical Year (YYYY): ";
+    std::getline(std::cin, year);
+    y = ParseIntFromInput(year);
+
+    std::cout << std::endl;
+
+    //Check the Month, Day, and Year are all valid
+    if (m < 1 || m > 12)
+    {
+        std::cout << "Invalid Month!" << std::endl;
+        valid = false;
+    }
+
+    if (d < 1 || d > 31)
+    {
+        std::cout << "Invalid Day!" << std::endl;
+        valid = false;
+    }
+
+    if (y < 1900 || y > 2100)
+    {
+        std::cout << "Invalid Year!" << std::endl;
+        valid = false;
+    }
+
+    if (!valid)
+    {
+        //For now return to previous menu. If there is time, I will provide better validation correction/backing out
+        std::cout << std::endl;
+        return;
+    }
+
+    //Generate the timepoint
+    std::tm tm = {
+        0,
+        0,
+        0,
+        d,
+        m - 1,
+        y - 1900,
+    };
+
+    std::chrono::system_clock::time_point dt = std::chrono::system_clock::from_time_t(std::mktime(&tm));
+
+    //Attempt the update
+    try
+    {
+        apt.UpdateDate(dt);
+        std::cout << "Successfully updated scheduled date for Appointment ID: " << id << "\n" << std::endl;
+    }
+    catch (const std::invalid_argument& e)
+    {
+        //Oops, something is wrong!
+        std::cout << id << std::endl;
+        std::cout << "Unable to update the schedule date. " << e.what() << "\n" << std::endl;
+    }
+
+}
+
+void CancelAppointment() {
+    if (apptService.GetListSize() == 0)
+    {
+        std::cout << "No Appointments exist!\n" << std::endl;
+        return;
+    }
+
+    std::string aptID;
+
+    std::cout << "Cancel Appointment" << std::endl;
+    std::cout << "==================" << std::endl;
+
+    //Get the ID
+    std::cout << "Appointment ID: ";
+    std::getline(std::cin, aptID);
+
+    Appointment apt = apptService.GetAppointmentByID(aptID);
+
+    if (apt.GetContactID() != "INVALID")
+    {
+        bool success = apptService.DeleteAppointment(aptID);
+
+        if (success)
+        {
+            std::cout << "Successfully canceled appointment. [Pseudo]" << "\n" << std::endl;
+        }
+        else {
+            std::cout << "Failed to cancel appointment.\n" << std::endl;
+        }
+    }
+}
+
+void DisplayAppointment() {
+    if (apptService.GetListSize() == 0)
+    {
+        std::cout << "No Appointments exist!\n" << std::endl;
+        return;
+    }
+
+    std::string aptID;
+
+    std::cout << "Display Appointment" << std::endl;
+    std::cout << "===================" << std::endl;
+
+    //Get the ID
+    std::cout << "Appointment ID: ";
+    std::getline(std::cin, aptID);
+
+    Appointment apt = apptService.GetAppointmentByID(aptID);
+
+    if (apt.GetContactID() != "INVALID")
+    {
+        apt.PrintAppointment();
     }
 }
 
@@ -473,4 +792,14 @@ int ParseIntFromInput(std::string input)
         //Invalid int
         return -1;
     }
+}
+
+void InsertTestPatients()
+{
+    std::string cid = "chris12345";
+    std::string name = "Christopher";
+    std::string lname = "Roelle"; 
+    std::string phone = "8009355762";
+    std::string add = "900 Test Ave";
+    contactService.AddContact(cid, name, lname, phone, add);
 }

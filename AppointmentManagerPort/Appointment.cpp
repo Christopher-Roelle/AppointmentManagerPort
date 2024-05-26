@@ -1,5 +1,14 @@
 #include "Appointment.h"
 
+//Error Appointment
+Appointment::Appointment()
+{
+	appointmentID = "INVALID";
+	contactID = "INVALID";
+	dateOfAppointment = std::chrono::system_clock::now();
+	description = "INVALID";
+}
+
 Appointment::Appointment(std::string& cid)
 {
 	appointmentID = INITIALIZER;
@@ -97,6 +106,24 @@ std::chrono::system_clock::time_point Appointment::GetDateOfAppointment() const
 std::string Appointment::GetDescription() const
 {
 	return description;
+}
+
+void Appointment::PrintAppointment()
+{
+	std::string cid = GetContactID();
+	Contact c = ContactService::GetInstance().GetContactByID(cid);
+
+	std::time_t time = std::chrono::system_clock::to_time_t(GetDateOfAppointment());
+	std::tm tm;
+	localtime_s(&tm, &time);
+	std::stringstream dos;
+	dos << std::put_time(&tm, "%Y-%m-%d");
+
+	std::cout << "\n";
+	std::cout << "ID: " << GetAppointmentID() << "\n";
+	std::cout << "Patient Name: " << c.GetFullName() << "\n";
+	std::cout << "Date of Service: " << dos.str() << "\n";
+	std::cout << "Description: " << GetDescription() << "\n" << std::endl;
 }
 
 //Helper

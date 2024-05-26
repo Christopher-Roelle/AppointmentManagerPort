@@ -107,14 +107,9 @@ void ContactService::DisplayAllContacts() const
 		return;
 	}
 
-	for (auto it = listOfContacts.begin(); it != listOfContacts.end(); ++it)
+	for (Contact c : listOfContacts)
 	{
-		std::cout << "\n";
-		std::cout << "ID: " << it->GetContactID() << "\n";
-		std::cout << "First Name: " << it->GetFirstName() << "\n";
-		std::cout << "Last Name: " << it->GetLastName() << "\n";
-		std::cout << "Phone Number: " << it->GetPhoneNumber() << "\n";
-		std::cout << "Address: " << it->GetAddress() << std::endl;
+		c.PrintContact();
 	}
 
 	std::cout << std::endl;

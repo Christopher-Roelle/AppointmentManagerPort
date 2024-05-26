@@ -1,37 +1,34 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\chris\\source\\repos\\AppointmentManagerPort\\",
+  "WorkspaceRootPath": "C:\\Users\\chris\\Documents\\Github\\AppointmentManagerPort\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8BE6AD77-882E-4B53-9B6F-72ED9A1E7D1F}|AppointmentManagerPort\\AppointmentManagerPort.vcxproj|C:\\Users\\chris\\source\\repos\\AppointmentManagerPort\\AppointmentManagerPort\\AppointmentService.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8BE6AD77-882E-4B53-9B6F-72ED9A1E7D1F}|AppointmentManagerPort\\AppointmentManagerPort.vcxproj|solutionrelative:AppointmentManagerPort\\AppointmentService.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BE6AD77-882E-4B53-9B6F-72ED9A1E7D1F}|AppointmentManagerPort\\AppointmentManagerPort.vcxproj|C:\\Users\\chris\\source\\repos\\AppointmentManagerPort\\AppointmentManagerPort\\AppointmentService.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8BE6AD77-882E-4B53-9B6F-72ED9A1E7D1F}|AppointmentManagerPort\\AppointmentManagerPort.vcxproj|solutionrelative:AppointmentManagerPort\\AppointmentService.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BE6AD77-882E-4B53-9B6F-72ED9A1E7D1F}|AppointmentManagerPort\\AppointmentManagerPort.vcxproj|C:\\Users\\chris\\source\\repos\\AppointmentManagerPort\\AppointmentManagerPort\\ContactService.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8BE6AD77-882E-4B53-9B6F-72ED9A1E7D1F}|AppointmentManagerPort\\AppointmentManagerPort.vcxproj|solutionrelative:AppointmentManagerPort\\ContactService.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BE6AD77-882E-4B53-9B6F-72ED9A1E7D1F}|AppointmentManagerPort\\AppointmentManagerPort.vcxproj|C:\\Users\\chris\\source\\repos\\AppointmentManagerPort\\AppointmentManagerPort\\ContactService.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8BE6AD77-882E-4B53-9B6F-72ED9A1E7D1F}|AppointmentManagerPort\\AppointmentManagerPort.vcxproj|solutionrelative:AppointmentManagerPort\\ContactService.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BE6AD77-882E-4B53-9B6F-72ED9A1E7D1F}|AppointmentManagerPort\\AppointmentManagerPort.vcxproj|C:\\Users\\chris\\source\\repos\\AppointmentManagerPort\\AppointmentManagerPort\\AppointmentManagerPort.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{8BE6AD77-882E-4B53-9B6F-72ED9A1E7D1F}|AppointmentManagerPort\\AppointmentManagerPort.vcxproj|C:\\Users\\chris\\Documents\\Github\\AppointmentManagerPort\\AppointmentManagerPort\\AppointmentManagerPort.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8BE6AD77-882E-4B53-9B6F-72ED9A1E7D1F}|AppointmentManagerPort\\AppointmentManagerPort.vcxproj|solutionrelative:AppointmentManagerPort\\AppointmentManagerPort.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8BE6AD77-882E-4B53-9B6F-72ED9A1E7D1F}|AppointmentManagerPort\\AppointmentManagerPort.vcxproj|C:\\Users\\chris\\source\\repos\\AppointmentManagerPort\\AppointmentManagerPort\\Appointment.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{8BE6AD77-882E-4B53-9B6F-72ED9A1E7D1F}|AppointmentManagerPort\\AppointmentManagerPort.vcxproj|C:\\Users\\chris\\Documents\\Github\\AppointmentManagerPort\\AppointmentManagerPort\\Appointment.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8BE6AD77-882E-4B53-9B6F-72ED9A1E7D1F}|AppointmentManagerPort\\AppointmentManagerPort.vcxproj|solutionrelative:AppointmentManagerPort\\Appointment.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8BE6AD77-882E-4B53-9B6F-72ED9A1E7D1F}|AppointmentManagerPort\\AppointmentManagerPort.vcxproj|C:\\Users\\chris\\source\\repos\\AppointmentManagerPort\\AppointmentManagerPort\\Appointment.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{8BE6AD77-882E-4B53-9B6F-72ED9A1E7D1F}|AppointmentManagerPort\\AppointmentManagerPort.vcxproj|C:\\Users\\chris\\Documents\\Github\\AppointmentManagerPort\\AppointmentManagerPort\\AppointmentService.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8BE6AD77-882E-4B53-9B6F-72ED9A1E7D1F}|AppointmentManagerPort\\AppointmentManagerPort.vcxproj|solutionrelative:AppointmentManagerPort\\AppointmentService.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE6AD77-882E-4B53-9B6F-72ED9A1E7D1F}|AppointmentManagerPort\\AppointmentManagerPort.vcxproj|C:\\Users\\chris\\Documents\\Github\\AppointmentManagerPort\\AppointmentManagerPort\\AppointmentService.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8BE6AD77-882E-4B53-9B6F-72ED9A1E7D1F}|AppointmentManagerPort\\AppointmentManagerPort.vcxproj|solutionrelative:AppointmentManagerPort\\AppointmentService.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE6AD77-882E-4B53-9B6F-72ED9A1E7D1F}|AppointmentManagerPort\\AppointmentManagerPort.vcxproj|C:\\Users\\chris\\Documents\\Github\\AppointmentManagerPort\\AppointmentManagerPort\\Appointment.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8BE6AD77-882E-4B53-9B6F-72ED9A1E7D1F}|AppointmentManagerPort\\AppointmentManagerPort.vcxproj|solutionrelative:AppointmentManagerPort\\Appointment.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\xutility||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{8BE6AD77-882E-4B53-9B6F-72ED9A1E7D1F}|AppointmentManagerPort\\AppointmentManagerPort.vcxproj|C:\\Users\\chris\\Documents\\Github\\AppointmentManagerPort\\AppointmentManagerPort\\Contact.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8BE6AD77-882E-4B53-9B6F-72ED9A1E7D1F}|AppointmentManagerPort\\AppointmentManagerPort.vcxproj|solutionrelative:AppointmentManagerPort\\Contact.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BE6AD77-882E-4B53-9B6F-72ED9A1E7D1F}|AppointmentManagerPort\\AppointmentManagerPort.vcxproj|C:\\Users\\chris\\Documents\\Github\\AppointmentManagerPort\\AppointmentManagerPort\\Contact.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8BE6AD77-882E-4B53-9B6F-72ED9A1E7D1F}|AppointmentManagerPort\\AppointmentManagerPort.vcxproj|solutionrelative:AppointmentManagerPort\\Contact.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -41,108 +38,95 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
+              "Title": "Contact.cpp",
+              "DocumentMoniker": "C:\\Users\\chris\\Documents\\Github\\AppointmentManagerPort\\AppointmentManagerPort\\Contact.cpp",
+              "RelativeDocumentMoniker": "AppointmentManagerPort\\Contact.cpp",
+              "ToolTip": "C:\\Users\\chris\\Documents\\Github\\AppointmentManagerPort\\AppointmentManagerPort\\Contact.cpp",
+              "RelativeToolTip": "AppointmentManagerPort\\Contact.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEwAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-25T20:28:05.863Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Contact.h",
+              "DocumentMoniker": "C:\\Users\\chris\\Documents\\Github\\AppointmentManagerPort\\AppointmentManagerPort\\Contact.h",
+              "RelativeDocumentMoniker": "AppointmentManagerPort\\Contact.h",
+              "ToolTip": "C:\\Users\\chris\\Documents\\Github\\AppointmentManagerPort\\AppointmentManagerPort\\Contact.h",
+              "RelativeToolTip": "AppointmentManagerPort\\Contact.h",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAACEAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-25T20:28:03.542Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "AppointmentService.h",
-              "DocumentMoniker": "C:\\Users\\chris\\source\\repos\\AppointmentManagerPort\\AppointmentManagerPort\\AppointmentService.h",
+              "DocumentMoniker": "C:\\Users\\chris\\Documents\\Github\\AppointmentManagerPort\\AppointmentManagerPort\\AppointmentService.h",
               "RelativeDocumentMoniker": "AppointmentManagerPort\\AppointmentService.h",
-              "ToolTip": "C:\\Users\\chris\\source\\repos\\AppointmentManagerPort\\AppointmentManagerPort\\AppointmentService.h",
+              "ToolTip": "C:\\Users\\chris\\Documents\\Github\\AppointmentManagerPort\\AppointmentManagerPort\\AppointmentService.h",
               "RelativeToolTip": "AppointmentManagerPort\\AppointmentService.h",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABsAAAApAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAB4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-05-25T08:39:57.915Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "AppointmentService.cpp",
-              "DocumentMoniker": "C:\\Users\\chris\\source\\repos\\AppointmentManagerPort\\AppointmentManagerPort\\AppointmentService.cpp",
+              "DocumentMoniker": "C:\\Users\\chris\\Documents\\Github\\AppointmentManagerPort\\AppointmentManagerPort\\AppointmentService.cpp",
               "RelativeDocumentMoniker": "AppointmentManagerPort\\AppointmentService.cpp",
-              "ToolTip": "C:\\Users\\chris\\source\\repos\\AppointmentManagerPort\\AppointmentManagerPort\\AppointmentService.cpp",
+              "ToolTip": "C:\\Users\\chris\\Documents\\Github\\AppointmentManagerPort\\AppointmentManagerPort\\AppointmentService.cpp",
               "RelativeToolTip": "AppointmentManagerPort\\AppointmentService.cpp",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAABsAAAA5AAAA",
+              "ViewState": "AQIAADYAAAAAAAAAAAAAAEgAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-25T08:30:07.182Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "Appointment.cpp",
-              "DocumentMoniker": "C:\\Users\\chris\\source\\repos\\AppointmentManagerPort\\AppointmentManagerPort\\Appointment.cpp",
+              "DocumentMoniker": "C:\\Users\\chris\\Documents\\Github\\AppointmentManagerPort\\AppointmentManagerPort\\Appointment.cpp",
               "RelativeDocumentMoniker": "AppointmentManagerPort\\Appointment.cpp",
-              "ToolTip": "C:\\Users\\chris\\source\\repos\\AppointmentManagerPort\\AppointmentManagerPort\\Appointment.cpp",
+              "ToolTip": "C:\\Users\\chris\\Documents\\Github\\AppointmentManagerPort\\AppointmentManagerPort\\Appointment.cpp",
               "RelativeToolTip": "AppointmentManagerPort\\Appointment.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAsAAAA",
+              "ViewState": "AQIAADAAAAAAAAAAAAAAAEcAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-25T08:21:15.499Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "xutility",
-              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\xutility",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\xutility",
-              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\xutility",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\xutility",
-              "ViewState": "AQIAAOoSAAAAAAAAAAAcwAUTAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-05-25T08:16:54.348Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
               "Title": "Appointment.h",
-              "DocumentMoniker": "C:\\Users\\chris\\source\\repos\\AppointmentManagerPort\\AppointmentManagerPort\\Appointment.h",
+              "DocumentMoniker": "C:\\Users\\chris\\Documents\\Github\\AppointmentManagerPort\\AppointmentManagerPort\\Appointment.h",
               "RelativeDocumentMoniker": "AppointmentManagerPort\\Appointment.h",
-              "ToolTip": "C:\\Users\\chris\\source\\repos\\AppointmentManagerPort\\AppointmentManagerPort\\Appointment.h",
+              "ToolTip": "C:\\Users\\chris\\Documents\\Github\\AppointmentManagerPort\\AppointmentManagerPort\\Appointment.h",
               "RelativeToolTip": "AppointmentManagerPort\\Appointment.h",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAABEAAAAuAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-05-25T07:36:48.035Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ContactService.cpp",
-              "DocumentMoniker": "C:\\Users\\chris\\source\\repos\\AppointmentManagerPort\\AppointmentManagerPort\\ContactService.cpp",
-              "RelativeDocumentMoniker": "AppointmentManagerPort\\ContactService.cpp",
-              "ToolTip": "C:\\Users\\chris\\source\\repos\\AppointmentManagerPort\\AppointmentManagerPort\\ContactService.cpp",
-              "RelativeToolTip": "AppointmentManagerPort\\ContactService.cpp",
-              "ViewState": "AQIAAFYAAAAAAAAAAAAAAG8AAAACAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-25T04:22:14.086Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ContactService.h",
-              "DocumentMoniker": "C:\\Users\\chris\\source\\repos\\AppointmentManagerPort\\AppointmentManagerPort\\ContactService.h",
-              "RelativeDocumentMoniker": "AppointmentManagerPort\\ContactService.h",
-              "ToolTip": "C:\\Users\\chris\\source\\repos\\AppointmentManagerPort\\AppointmentManagerPort\\ContactService.h",
-              "RelativeToolTip": "AppointmentManagerPort\\ContactService.h",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAswBgAAAAKAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-25T04:11:59.756Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "AppointmentManagerPort.cpp",
-              "DocumentMoniker": "C:\\Users\\chris\\source\\repos\\AppointmentManagerPort\\AppointmentManagerPort\\AppointmentManagerPort.cpp",
+              "DocumentMoniker": "C:\\Users\\chris\\Documents\\Github\\AppointmentManagerPort\\AppointmentManagerPort\\AppointmentManagerPort.cpp",
               "RelativeDocumentMoniker": "AppointmentManagerPort\\AppointmentManagerPort.cpp",
-              "ToolTip": "C:\\Users\\chris\\source\\repos\\AppointmentManagerPort\\AppointmentManagerPort\\AppointmentManagerPort.cpp",
+              "ToolTip": "C:\\Users\\chris\\Documents\\Github\\AppointmentManagerPort\\AppointmentManagerPort\\AppointmentManagerPort.cpp",
               "RelativeToolTip": "AppointmentManagerPort\\AppointmentManagerPort.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAAAAAA",
+              "ViewState": "AQIAALACAAAAAAAAAAAAAMECAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-24T21:00:06.33Z",
               "EditorCaption": ""

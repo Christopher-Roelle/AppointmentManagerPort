@@ -1,3 +1,8 @@
-﻿  AppointmentService.cpp
-C:\Users\chris\source\repos\AppointmentManagerPort\AppointmentManagerPort\AppointmentService.cpp(126,29): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-  AppointmentManagerPort.vcxproj -> C:\Users\chris\source\repos\AppointmentManagerPort\x64\Debug\AppointmentManagerPort.exe
+﻿  Appointment.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.40.33807\include\format(42): warning STL4038: The contents of <format> are available only with C++20 or later.
+  AppointmentManagerPort.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.40.33807\include\format(42): warning STL4038: The contents of <format> are available only with C++20 or later.
+C:\Users\chris\Documents\Github\AppointmentManagerPort\AppointmentManagerPort\AppointmentManagerPort.cpp(101,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\chris\Documents\Github\AppointmentManagerPort\AppointmentManagerPort\AppointmentManagerPort.cpp(589,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Generating Code...
+  AppointmentManagerPort.vcxproj -> C:\Users\chris\Documents\Github\AppointmentManagerPort\x64\Debug\AppointmentManagerPort.exe

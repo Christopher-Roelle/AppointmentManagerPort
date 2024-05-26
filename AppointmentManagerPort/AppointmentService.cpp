@@ -1,5 +1,15 @@
 #include "AppointmentService.h"
 
+//Singleton Instance
+AppointmentService& AppointmentService::GetInstance()
+{
+	static std::unique_ptr<AppointmentService> instance(new AppointmentService());
+	return *instance;
+}
+
+//Constructor (Private)
+AppointmentService::AppointmentService() {};
+
 std::string AppointmentService::NewUniqueID()
 {
 	//Seed the RNG on a device
@@ -53,46 +63,38 @@ void AppointmentService::NewAppointment(std::string& id, std::string& cid, std::
 }
 
 //Delete appointment by ID
-//bool AppointmentService::DeleteAppointment(std::string& id)
-//{
-//	for (auto it = appointmentList.begin(); it != appointmentList.end(); ++it)
-//	{
-//		if (it->GetAppointmentID() == id)
-//		{
-//			//appointmentList.erase(it);
-//			return true;
-//		}
-//	}
-//
-//	//No records
-//	return false;
-//}
-
-//Getters
-void AppointmentService::GetAppointmentByID(std::string& id)
+bool AppointmentService::DeleteAppointment(std::string& id)
 {
-	if (GetListSize() == 0)
-	{
-		std::cout << "No appointments exist!\n" << std::endl;
-		return;
-	}
-
-	ContactService& contactService = ContactService::GetInstance();
-
+	//Iterate over the vector, if the Appointment exists, delete it
 	for (auto it = appointmentList.begin(); it != appointmentList.end(); ++it)
 	{
 		if (it->GetAppointmentID() == id)
 		{
-			std::string cid = it->GetContactID();
-			Contact c = contactService.GetContactByID(cid);
+			//appointmentList.erase(it);
+			return true;
+		}
+	}
 
-			std::cout << "\n";
-			std::cout << "Appointment ID: " << it->GetContactID() << "\n";
-			std::cout << "Patient ID: " << cid << "\n";
-			std::cout << "Patient Name: " << c.GetFirstName() << " " << c.GetLastName() << "\n";
-			//std::cout << "Scheduled: " << it->GetDateOfAppointment() << "\n";
-			std::cout << "Description: " << it->GetDescription() << std::endl;
-			return;
+	//No records
+	return false;
+}
+
+//Getters
+Appointment AppointmentService::GetAppointmentByID(std::string& id)
+{
+	if (GetListSize() == 0)
+	{
+		std::cout << "No appointments exist!\n" << std::endl;
+		return Appointment();
+	}
+
+	ContactService& contactService = ContactService::GetInstance();
+
+	for (Appointment apt : appointmentList)
+	{
+		if (apt.GetAppointmentID() == id)
+		{			
+			return apt;
 		}
 	}
 }
@@ -107,17 +109,9 @@ void AppointmentService::GetAllAppointments()
 
 	ContactService& contactService = ContactService::GetInstance();
 
-	for (const auto& appt : appointmentList)
+	for (Appointment apt : appointmentList)
 	{
-		std::string cid = appt.GetContactID();
-		Contact c = contactService.GetContactByID(cid);
-
-		std::cout << "\n";
-		std::cout << "Appointment ID: " << appt.GetContactID() << "\n";
-		std::cout << "Patient ID: " << cid << "\n";
-		std::cout << "Patient Name: " << c.GetFirstName() << " " << c.GetLastName() << "\n";
-		//std::cout << "Scheduled: " << appt.GetDateOfAppointment() << "\n";
-		std::cout << "Description: " << appt.GetDescription() << std::endl;
+		apt.PrintAppointment();
 	}
 }
 

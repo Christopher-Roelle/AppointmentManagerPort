@@ -19,7 +19,16 @@ private:
 
 	std::string NewUniqueID();
 
+	//Constructor (Singleton)
+	AppointmentService();
+
 public:
+	static AppointmentService& GetInstance();
+
+	//Removing copy constructor/assignment
+	//AppointmentService(const AppointmentService&) = delete;
+	//void operator=(const AppointmentService&) = delete;
+
 	void NewAppointment(std::string& cid);
 	void NewAppointment(std::string& id, std::string& cid);
 	void NewAppointment(std::string& id, std::string& cid, std::chrono::system_clock::time_point date);
@@ -28,7 +37,7 @@ public:
 	bool DeleteAppointment(std::string& id);
 
 	//Getters
-	void GetAppointmentByID(std::string& id);
+	Appointment GetAppointmentByID(std::string& id);
 	void GetAllAppointments();
 
 	int GetListSize();

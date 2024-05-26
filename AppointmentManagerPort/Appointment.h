@@ -5,6 +5,12 @@
 #include <chrono>
 #include <iostream>
 #include <stdexcept>
+#include <format>
+#include <ctime>
+#include <iomanip>
+#include <sstream>
+#include "ContactService.h"
+
 
 class Appointment
 {
@@ -19,6 +25,9 @@ private:
 	std::string description;
 
 public:
+	//Error Constructor
+	Appointment();
+
 	Appointment(std::string& cid);
 	Appointment(std::string& id, std::string& cid);
 	Appointment(std::string& id, std::string& cid, std::chrono::system_clock::time_point date);
@@ -34,6 +43,8 @@ public:
 	std::string GetContactID() const;
 	std::chrono::system_clock::time_point GetDateOfAppointment() const;
 	std::string GetDescription() const;
+
+	void PrintAppointment();
 
 	//Helpers
 	bool IsValidDate(std::chrono::system_clock::time_point date, bool displayMessage);
