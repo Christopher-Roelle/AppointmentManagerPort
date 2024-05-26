@@ -10,6 +10,8 @@ AppointmentService& AppointmentService::GetInstance()
 //Constructor (Private)
 AppointmentService::AppointmentService() {};
 
+//Generates a NewUniqueID. I dont actually use this.
+//Forgot I ported code for this, I could use this for the apt IDs, however I like my current iteration more atm.
 std::string AppointmentService::NewUniqueID()
 {
 	//Seed the RNG on a device
@@ -17,6 +19,7 @@ std::string AppointmentService::NewUniqueID()
 	std::mt19937 gen(rd());
 	std::uniform_int_distribution<> dis(0, 15);
 
+	//Place the hex value in the SS
 	std::stringstream ss;
 	ss << std::hex;
 
@@ -28,6 +31,7 @@ std::string AppointmentService::NewUniqueID()
 		ss << digit;
 	}
 
+	//Set the uuid as the contents of ss
 	std::string uuid = ss.str();
 
 	//Substring the UID as the Unique ID
@@ -63,6 +67,8 @@ void AppointmentService::NewAppointment(std::string& id, std::string& cid, std::
 }
 
 //Delete appointment by ID
+//TODO:: Figure out why uncommenting the erase causes a deleted function reference error....
+//Implementation was ripped from ContactService, which does the same thing with 0 issue.
 bool AppointmentService::DeleteAppointment(std::string& id)
 {
 	//Iterate over the vector, if the Appointment exists, delete it
@@ -77,6 +83,26 @@ bool AppointmentService::DeleteAppointment(std::string& id)
 
 	//No records
 	return false;
+}
+
+//Calls the process to update the appointment's date.
+//Was initially making the call directly to the apt object from the menu, but thought this was cleaner, and
+//hoped it could resolve the bug where the time_point isnt updating even when the code succeeds and the params contain
+//The proper data....
+bool AppointmentService::UpdateAppointmentDate(std::string& id, std::chrono::system_clock::time_point date)
+{
+	Appointment apt = GetAppointmentByID(id);
+	
+	//Verify its valid
+	if (apt.GetAppointmentID() == "INVALID")
+	{
+		std::cout << "Invalid appointment ID!" << std::endl;
+		return false;
+	}
+
+	//Make the update
+	apt.UpdateDate(date);
+	return true;
 }
 
 //Getters
@@ -99,22 +125,26 @@ Appointment AppointmentService::GetAppointmentByID(std::string& id)
 	}
 }
 
+//Calls PrintAppointment for all stored appointments
 void AppointmentService::GetAllAppointments()
 {
+	//Check the list is not empty.
 	if (GetListSize() == 0)
 	{
 		std::cout << "No appointments exist!\n" << std::endl;
 		return;
 	}
 
-	ContactService& contactService = ContactService::GetInstance();
+	//ContactService& contactService = ContactService::GetInstance();
 
+	//Iterate the list, calling PrintAppointment
 	for (Appointment apt : appointmentList)
 	{
 		apt.PrintAppointment();
 	}
 }
 
+//Returns the number of stored appointments
 int AppointmentService::GetListSize()
 {
 	return appointmentList.size();

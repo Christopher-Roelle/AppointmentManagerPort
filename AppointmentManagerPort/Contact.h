@@ -5,6 +5,7 @@
 #include <stdexcept>
 #include <iostream>
 
+//header for the Contact class
 class Contact
 {
 

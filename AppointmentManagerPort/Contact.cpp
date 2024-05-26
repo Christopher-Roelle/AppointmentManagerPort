@@ -1,6 +1,6 @@
 #include "Contact.h"
 
-//Invalid obj
+//Invalid obj, used for checking if contact exists or not
 Contact::Contact()
 {
 	this->contactID = "INVALID";
@@ -43,6 +43,7 @@ Contact::Contact(const std::string& cid, const std::string& fn, const std::strin
 	this->address = addr;
 };
 
+//Prints the Contacts details to the CLI
 void Contact::PrintContact()
 {
 	std::cout << "\n";

@@ -38,13 +38,16 @@ bool ContactService::DeleteContact(std::string& cid)
 	//Iterate over the vector, if the contact exists, delete it
 	for (auto it = listOfContacts.begin(); it != listOfContacts.end(); ++it)
 	{
+		//Check the passed cid against the contactID on the contact
 		if (it->GetContactID() == cid)
 		{
+			//Matches, delete it from the list
 			listOfContacts.erase(it);
 			return true;
 		}
 	}
 
+	//No Matches
 	return false;
 }
 
@@ -101,16 +104,19 @@ Contact ContactService::GetContactByID(std::string& cid) const
 //Returns all contacts
 void ContactService::DisplayAllContacts() const
 {
+	//Check the list is not empty
 	if (GetListSize() == 0)
 	{
 		std::cout << "No contacts exist!\n" << std::endl;
 		return;
 	}
 
+	//Call printContact for all stored contacts
 	for (Contact c : listOfContacts)
 	{
 		c.PrintContact();
 	}
 
+	//New line for clean output
 	std::cout << std::endl;
 }

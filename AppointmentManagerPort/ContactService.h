@@ -6,6 +6,7 @@
 #include <memory>
 #include <iostream>
 
+//Header for the service that manages the Contacts
 class ContactService
 {
 private:

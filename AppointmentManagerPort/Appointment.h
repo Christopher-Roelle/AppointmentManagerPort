@@ -11,7 +11,7 @@
 #include <sstream>
 #include "ContactService.h"
 
-
+//Header for the Appointment Class
 class Appointment
 {
 private:
@@ -35,7 +35,7 @@ public:
 
 	//Methods
 	void UpdateAppointmentID(std::string& id);
-	void UpdateDate(std::chrono::system_clock::time_point date);
+	void UpdateDate(const std::chrono::system_clock::time_point &date);
 	void UpdateDesc(std::string& newDesc);
 
 	//Getters

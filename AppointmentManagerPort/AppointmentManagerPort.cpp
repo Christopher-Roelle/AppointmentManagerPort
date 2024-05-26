@@ -8,6 +8,7 @@
 #include "AppointmentService.h"
 
 //Prototypes
+//========================
 //Debugging
 void InsertTestPatients();
 
@@ -36,9 +37,11 @@ void DisplayAppointment();
 int ParseIntFromInput(std::string input);
 
 //Vars
+//=========================
 std::string officeName = "Lakeland Medical Center";
 std::string officeMoto = "Your number one care practitioner!";
 
+//Services
 ContactService& contactService = ContactService::GetInstance();
 AppointmentService& apptService = AppointmentService::GetInstance();
 
@@ -51,6 +54,7 @@ enum class STATE{
     Exiting
 };
 
+//Current state that the app is in, default to StartUp to Prep
 STATE currentState = STATE::StartUp;
 
 int main()
@@ -90,9 +94,12 @@ int main()
     }
 
     std::cout << "Thank you for choosing " << officeName << "!" << std::endl;
+    return 0;
 }
 
-//Prints the Main Menu header
+//Menu Functions
+//===================================================
+//Prints the Main Menu header, has logic to dynamically create a border around the OfficeName and Moto
 void PrintHeader()
 {
     std::string oName = "Welcome to " + officeName;
@@ -157,7 +164,7 @@ void PrintMainMenu()
     std::cout << "3) Exit\n" << std::endl;
 }
 
-//Displays the Patient Menu
+//Displays the Patient Menu and handles the PatientMenu State
 void PatientMenu() {
     PrintPatientMenu();
 
@@ -216,7 +223,7 @@ void PrintPatientMenu()
     std::cout << "6) Return to Main Menu\n" << std::endl;
 }
 
-//Display the Appointment Menu
+//Display the Appointment Menu and handles the AppointmentMenu State
 void AppointmentMenu() {
     PrintAppointmentMenu();
 
@@ -276,7 +283,7 @@ void PrintAppointmentMenu()
 }
 
 //Contact Functions
-
+//===================================================
 //Takes in user input and attempts to have the contact service create a new Contact for the patient
 void NewContact()
 {
@@ -361,8 +368,10 @@ void NewContact()
     }
 }
 
+//Updates a contact
 void UpdateContact()
 {
+    //Check that there are even contacts. No point searching if nothing exists.
     if (contactService.GetListSize() == 0)
     {
         std::cout << "No contacts exist!\n" << std::endl;
@@ -442,8 +451,10 @@ void UpdateContact()
 
 }
 
+//Deletes a contact.
 void DeleteContact()
 {
+    //Check if there are contacts. No point searching if we have none.
     if (contactService.GetListSize() == 0)
     {
         std::cout << "No contacts exist!\n" << std::endl;
@@ -459,6 +470,7 @@ void DeleteContact()
     std::cout << "Patient ID: ";
     std::getline(std::cin, contactID);
 
+    //Perform the delete
     bool success = contactService.DeleteContact(contactID);
 
     if (success)
@@ -472,7 +484,9 @@ void DeleteContact()
 
 }
 
+//Displays a single contact by ID
 void DisplayContact() {
+    //Check we have contacts to search.
     if (contactService.GetListSize() == 0)
     {
         std::cout << "No contacts exist!\n" << std::endl;
@@ -490,6 +504,7 @@ void DisplayContact() {
 
     Contact contact = contactService.GetContactByID(contactID);
 
+    //Make sure we have a valid contact
     if (contact.GetContactID() != "INVALID")
     {
         contact.PrintContact();
@@ -497,6 +512,9 @@ void DisplayContact() {
 }
 
 //Appointment Functions
+//=================================
+
+//Creates a new appointment and adds it to the appointment list
 void NewAppointment()
 {
     bool valid = true;
@@ -593,28 +611,12 @@ void NewAppointment()
     //Insert Apt
     apptService.NewAppointment(id, cid, dt, desc);
     std::cout << "Successfully added Appointment ID: " << id << "\n" << std::endl;
-
-    //try
-    //{
-    //    bool success = apptService.NewAppointment(id, cid, dt, desc);
-    //
-    //    if (success)
-    //    {
-    //        std::cout << "Successfully added Patient Contact ID: " << contactID << "\n" << std::endl;
-    //    }
-    //    else
-    //    {
-    //        std::cout << "Failed to add Patient Contact ID: " << contactID << " -- already exists!\n" << std::endl;
-    //    }
-    //}
-    //catch (const std::invalid_argument& e)
-    //{
-    //    //Oops, something is wrong!
-    //    std::cout << contactID << std::endl;
-    //    std::cout << "Unable to add the patient. " << e.what() << "\n" << std::endl;
-    //}
 }
 
+//Reschedules an appointment.
+//Currently bugged, the time passes properly to the Object, but the member variable wont take.
+//Not sure if its related to the Service's reference, or the time_point data structure....
+//TODO:: Look into this bug... --4 hours and still no luck...
 void RescheduleAppointment()
 {
     if (apptService.GetListSize() == 0)
@@ -695,20 +697,21 @@ void RescheduleAppointment()
 
     //Generate the timepoint
     std::tm tm = {
-        0,
-        0,
-        0,
-        d,
-        m - 1,
-        y - 1900,
+        0, //Sec
+        0, //Min
+        0, //Hour
+        d, //mDay
+        m - 1, //month since Jan
+        y - 1900, //Years since 1900
     };
 
-    std::chrono::system_clock::time_point dt = std::chrono::system_clock::from_time_t(std::mktime(&tm));
+    std::time_t time = std::mktime(const_cast<std::tm*>(&tm));
+    std::chrono::system_clock::time_point dt = std::chrono::system_clock::from_time_t(time);
 
     //Attempt the update
     try
     {
-        apt.UpdateDate(dt);
+        apptService.UpdateAppointmentDate(id, dt);
         std::cout << "Successfully updated scheduled date for Appointment ID: " << id << "\n" << std::endl;
     }
     catch (const std::invalid_argument& e)
@@ -720,6 +723,12 @@ void RescheduleAppointment()
 
 }
 
+//Cancels (deletes an appointment).
+//For some reason the vector::erase isnt working, its giving an error that I am making a reference to a deleted function.
+//Commenting out the erase call stops the error. The code is identical to the ContactService variant to delete contacts, and
+//both services remove the same methods, so not sure. Read it could be due to Unique Pointers... C++ quirks....
+//TODO:: Figure out how to get the delete to properly work, or convert to a doublely-linked list... Would take some refactoring though...
+//Will look into if I have time.
 void CancelAppointment() {
     if (apptService.GetListSize() == 0)
     {
@@ -752,6 +761,8 @@ void CancelAppointment() {
     }
 }
 
+//Displays an individual appointment based on apt ID.
+//This also gathers the Patient fullname to display with it.
 void DisplayAppointment() {
     if (apptService.GetListSize() == 0)
     {
@@ -768,8 +779,10 @@ void DisplayAppointment() {
     std::cout << "Appointment ID: ";
     std::getline(std::cin, aptID);
 
+    //Grab the Appointment
     Appointment apt = apptService.GetAppointmentByID(aptID);
 
+    //If valid, make the call to Print the Appointment
     if (apt.GetContactID() != "INVALID")
     {
         apt.PrintAppointment();
@@ -794,6 +807,7 @@ int ParseIntFromInput(std::string input)
     }
 }
 
+//Debug - Got tired of manually entering contacts every debug session
 void InsertTestPatients()
 {
     std::string cid = "chris12345";

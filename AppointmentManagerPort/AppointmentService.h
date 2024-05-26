@@ -12,6 +12,7 @@
 #include <random>
 #include "ContactService.h"
 
+//Header for the Service that manages the Appointments
 class AppointmentService
 {
 private:
@@ -35,6 +36,8 @@ public:
 	void NewAppointment(std::string& id, std::string& cid, std::chrono::system_clock::time_point date, std::string& desc);
 
 	bool DeleteAppointment(std::string& id);
+
+	bool UpdateAppointmentDate(std::string& id, std::chrono::system_clock::time_point date);
 
 	//Getters
 	Appointment GetAppointmentByID(std::string& id);
