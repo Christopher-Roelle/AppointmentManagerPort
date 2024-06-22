@@ -1,15 +1,9 @@
-﻿  Appointment.cpp
+﻿  AppointmentService.cpp
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\format(42): warning STL4038: The contents of <format> are available only with C++20 or later.
-  AppointmentManagerPort.cpp
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\format(42): warning STL4038: The contents of <format> are available only with C++20 or later.
-C:\Users\chris\source\repos\AppointmentManagerPort\AppointmentManagerPort\AppointmentManagerPort.cpp(108,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\chris\source\repos\AppointmentManagerPort\AppointmentManagerPort\AppointmentManagerPort.cpp(607,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  AppointmentService.cpp
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\format(42): warning STL4038: The contents of <format> are available only with C++20 or later.
-C:\Users\chris\source\repos\AppointmentManagerPort\AppointmentManagerPort\AppointmentService.cpp(148,29): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\chris\source\repos\AppointmentManagerPort\AppointmentManagerPort\AppointmentService.cpp(150,29): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
   Contact.cpp
   ContactService.cpp
-C:\Users\chris\source\repos\AppointmentManagerPort\AppointmentManagerPort\ContactService.cpp(83,28): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\chris\source\repos\AppointmentManagerPort\AppointmentManagerPort\ContactService.cpp(86,28): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
   Generating Code...
 C:\Users\chris\source\repos\AppointmentManagerPort\AppointmentManagerPort\AppointmentService.cpp(126,1): warning C4715: 'AppointmentService::GetAppointmentByID': not all control paths return a value
   AppointmentManagerPort.vcxproj -> C:\Users\chris\source\repos\AppointmentManagerPort\x64\Debug\AppointmentManagerPort.exe
