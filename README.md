@@ -7,6 +7,7 @@
 - [Prerequisites](#prerequisites)
 - [Building](#building)
 - [Usage](#usage)
+- [Known Bugs](#known-bugs)
 
 ## About
 Originally written for demonstration of Java Unit tests, I took this project and ported it to C++, as well as expanded its functionality to be a usable Appointment Manager.
@@ -33,9 +34,15 @@ If you want to compile yourself, please follow the below steps:
 4. Change Build to 'Release' and Architecture to desired (i.e. x64, x86, ARM)
 5. Click Build (Ctrl+F5)
 
-# Usage
+## Usage
 After downloading the pre-compiled version or compiling from the source, either run the executable via the .exe or run the following Command Line:
 ```bash
 cd -INSERT PATH HERE-
 ./AppointmentManagerPort.exe
 ```
+
+The CLI app will provide you with a menu with instructions for accessing specific features.
+
+## Known Bugs
+- Deleting Appointments doesnt properly delete appointments
+- Appointment Service doesnt properly update existing appointment service dates.
