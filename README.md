@@ -16,6 +16,7 @@ Originally written for demonstration of Java Unit tests, I took this project and
 - Native C++ code that can be compiled to any architecture with compiler support.
 - Added an entry point to the code in the form of a menu.
 - Implemented support for Creating, Reading, Updating and Deleting Patient Contacts and Appointments from the menu.
+- Conversion of Java Microservices to C++-Compatible MicroServices.
 
 ## Prerequisites
 - Visual Studio IDE (Or C++ Compiler)
